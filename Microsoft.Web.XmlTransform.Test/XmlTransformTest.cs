@@ -166,8 +166,8 @@ namespace Microsoft.Web.XmlTransform.Test
 
         private void CompareMultiLines(string baseline, string result)
         {
-            string[] baseLines = baseline.Split(new string[] { System.Environment.NewLine },  StringSplitOptions.None);
-            string[] resultLines = result.Split(new string[] { System.Environment.NewLine },  StringSplitOptions.None);
+            string[] baseLines = baseline.Replace("\r\n", "\n").Split(new string[] { "\n" },  StringSplitOptions.None);
+            string[] resultLines = result.Replace("\r\n", "\n").Split(new string[] { "\n" },  StringSplitOptions.None);
 
             for (int i = 0; i < baseLines.Length; i++)
             {
